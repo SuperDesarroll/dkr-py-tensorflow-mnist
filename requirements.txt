@@ -1,0 +1,7 @@
+# To ensure app dependencies are ported from your virtual environment/host machine into your container, run 'pip freeze > requirements.txt' in the terminal to overwrite this file
+tensorflow==2.12.0
+tensorflow-datasets==4.9.2
+numpy==1.23.5
+pandas==2.0.1
+matplotlib==3.7.1
+scikit-learn==1.2.2
