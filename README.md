@@ -1,5 +1,10 @@
-# dkr-py-tensorflow-mnist
+# Docker Python Tensorflow MNIST
 
-* Docker con Python 3.8
+* Docker with Python 3.8
 * Tensorflow
-* Identificación de Números
+* Numbers Identification
+
+# Run
+
+* Open VSCode
+* F5
