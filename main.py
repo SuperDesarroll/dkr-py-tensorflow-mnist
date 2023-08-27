@@ -4,12 +4,20 @@ import tensorflow_datasets as tfds
 import math
 import numpy as np
 import matplotlib.pyplot as plt
+import platform
 
 logger = tf.get_logger()
 logger.setLevel(logging.ERROR)
 
 print("Iniciando...")
 
+print(f"Python Platform: {platform.platform()}")
+print(f"Tensor Flow Version: {tf.__version__}")
+print(f"Keras Version: {tf.keras.__version__}")
+print()
+
+gpu = len(tf.config.list_physical_devices('GPU'))>0
+print("GPU is", "available" if gpu else "NOT AVAILABLE")
 
 def plot_image(iImage, predictions_array, true_labels, images):
     predictions_array, true_label, img = predictions_array[i], true_labels[i], images[i]
@@ -38,6 +46,13 @@ def plot_image(iImage, predictions_array, true_labels, images):
 
 dataset, metadata = tfds.load('mnist', as_supervised=True, with_info=True)
 train_dataset, test_dataset = dataset['train'], dataset['test']
+
+#mostrar el dataset en pantalla
+num_train_examples = metadata.splits['train'].num_examples
+num_test_examples = metadata.splits['test'].num_examples
+print("Numero de ejemplos de entrenamiento: {}".format(num_train_examples))
+print("Numero de ejemplos de prueba: {}".format(num_test_examples))
+
 
 class_names = ['Cero', 'Uno', 'Dos', 'Tres', 'Cuatro', 'Cinco', 'Seis', 'Siete', 'Ocho', 'Nueve']
 
